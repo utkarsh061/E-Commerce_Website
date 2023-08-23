@@ -2,7 +2,8 @@
 import express from "express";
 import dotenv from "dotenv"
 import connectDB from "./config/database.js";
-import { registerUser } from "./controller/authController.js";
+import { registerUser,loginUser } from "./controller/authController.js";
+
 
 dotenv.config()
 const app = express();
@@ -17,6 +18,7 @@ app.get("/",(req,res)=>{
 
 app.post("/register",registerUser)
  
+app.post("/login", loginUser)
 
 app.listen(process.env.PORT,()=>{
     console.log(`Server started on port ${process.env.PORT}`);
